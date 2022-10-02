@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  db:
+    image: postgis/postgis:14-master
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_DB=$POSTGRES_DB
+    networks:
+      - default
+    volumes:
+      - ./volumes/db:/var/lib/postgresql/data
+
+  api:
+    image: ghcr.io/oceans-1876/challenger-api:${API_REPO_VERSION:-latest}
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - default
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./volumes/challenger-data:/usr/src/challenger-api/data
+
+  web:
+    image: ghcr.io/oceans-1876/challenger-portal:${API_REPO_VERSION:-latest}
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - default
+    ports:
+      - "8080:80"
+
+networks:
+  default:

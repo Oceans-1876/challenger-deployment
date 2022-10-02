@@ -1,0 +1,28 @@
+# API
+API_REPO_VERSION=latest
+SERVER_HOST=https://oceans1876.ncsa.illinois.edu
+BACKEND_CORS_ORIGINS=["https://oceans1876.ncsa.illinois.edu"]
+SECRET_KEY=changeme
+
+# User
+FIRST_SUPERUSER=admin@example.com
+FIRST_SUPERUSER_PASSWORD=changeme
+USERS_OPEN_REGISTRATION=False
+
+# Email
+SMTP_TLS=True
+SMTP_PORT=25
+SMTP_HOST=smtp_server
+SMTP_USER=admin@example.com
+SMTP_PASSWORD=changeme
+EMAILS_FROM_EMAIL=admin@example.com
+
+# Sentry
+SENTRY_DSN=
+
+# Postgres
+POSTGRES_SERVER=db
+POSTGRES_USER=postgres_user
+POSTGRES_PASSWORD=changeme
+POSTGRES_DB=oceans1876
+POSTGRES_TEST_DB=tests_oceans1876
