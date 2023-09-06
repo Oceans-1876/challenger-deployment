@@ -34,8 +34,6 @@ services:
       - default
     ports:
       - "8080:80"
-    volumes:
-      - ./volumes/config.js:/usr/share/nginx/html/js/config.js
 
 networks:
   default:
